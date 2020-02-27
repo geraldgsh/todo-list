@@ -40,7 +40,7 @@ const renderTaskCard = (name, projectID, title, desc, dueDate, priority, done, i
                         <p class="text ${LINE} ${name}${id}">Project: ${name}</p>
                         <i class="far ${DONE} co" job="complete" id="${name}${id}" pid="${projectID}" tid="${id}"></i>
                         <i class="fas fa-trash-alt de" job="delete" pid="${projectID}" tid="${id}"></i>
-                        <i class="fas fa-edit se" job="edit" id="${id}"></i>
+                        <i class="fas fa-edit se" job="edit" pid="${projectID}" tid="${id}" id="editTask"></i>
                       </li>
                     </ul>
                   </div>
@@ -63,11 +63,14 @@ const iterateTasks = () => {
   const list = document.getElementById('list');
   list.innerHTML = '';
   const projectID = document.getElementById("listProject").value;
-  const projectList = JSON.parse(localStorage.getItem('projectList'));  
-  projectList[projectID].tasks.forEach((task) => {
-    renderTaskCard(projectList[projectID].name, projectID, task.title, task.desc, 
-      task.dueDate, task.priority, task.done, task.id);
-  });
+  const projectList = JSON.parse(localStorage.getItem('projectList'));
+  if (projectList[projectID] == undefined || projectList == null) {
+  } else {
+    projectList[projectID].tasks.forEach((task) => {
+      renderTaskCard(projectList[projectID].name, projectID, task.title, task.desc, 
+        task.dueDate, task.priority, task.done, task.id);
+    });
+  }  
 };
 
 const renderSingleTask = (projectID, titleInput, descInput, dateInput, priorityInput, done, id) => {
@@ -231,21 +234,51 @@ const removeTask = (element) => {
   window.location.reload();
 }
 
-const editTask = (element) => {
-  const taskModal = new BulmaModal("#taskModal");
-  taskModal.show();
+const updateTask = (element) => {
+  const pid = element.attributes.pid.value;
+  const tid = element.attributes.tid.value;
+  const taskArr = projectList[pid].tasks[tid];
+  console.warn(taskArr);
+  projectList[pid].tasks[tid].title = document.getElementById('titleEdit').value;
+  projectList[pid].tasks[tid].dueDate = document.getElementById('dateEdit').value;
+  projectList[pid].tasks[tid].desc = document.getElementById('descEdit').value;
+  projectList[pid].tasks[tid].priority = document.getElementById('priorityEdit').value;
+  console.warn(taskArr);
 }
+
+const editTask = (element) => {
+  const taskEditModal = new BulmaModal("#taskEditModal");  
+  taskEditModal.show();
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('editTask').addEventListener('click', updateTask(element));
+  });
+}
+
+const removeProject = (() => {
+  const pid = document.getElementById("listProject").value;
+  const deleteProject = document.getElementById('deleteProject');
+  deleteProject.addEventListener('click', () => {
+    projectList.splice(pid, 1);
+    updateLocalStorage(projectList);
+    window.location.reload();
+  });
+})();
 
 const modalOpen = (() => {
   const newProject = document.querySelector("#newProject");
   const projectModal = new BulmaModal("#projectModal");
   const newTask = document.querySelector("#newTask");
-  const taskModal = new BulmaModal("#taskModal");  
+  const taskModal = new BulmaModal("#taskModal");
+  const closeEditTask = document.querySelector("#closeEditTask");
+  const taskEditModal = new BulmaModal("#taskEditModal"); 
   newProject.addEventListener("click", function () {
     projectModal.show()  
   });  
   newTask.addEventListener("click", function () {
     taskModal.show()
+  });
+  closeEditTask.addEventListener("click", function () {
+    taskEditModal.show()
   });
 })()
 
@@ -254,8 +287,7 @@ const taskUpdate = (() => {
   // target the items create dynamically
   list.addEventListener("click", function(event) {
     const element =  event.target; //return the clicked element inside list
-    const elementJob = element.attributes.job.value; // complete or delete
-    console.warn(element)    
+    const elementJob = element.attributes.job.value; // complete or delete 
     if (elementJob == "complete") {
       completeTask(element);
     } else if (elementJob == "delete") {
