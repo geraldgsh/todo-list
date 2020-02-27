@@ -1,2 +1,2 @@
 # js-todo
-A Todo list written in Vanilla Javascript.
+A Todo list written in Javascript.
