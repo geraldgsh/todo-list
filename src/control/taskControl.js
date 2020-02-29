@@ -17,7 +17,7 @@ export const iterateTasks = () => {
   if (projectList[projectID] === undefined || projectList === null) {
   } else {
     projectList[projectID].tasks.forEach((task) => {
-      renderTaskCard(projectList[projectID].name, projectID, task.title, task.desc, 
+      renderTaskCard(projectList[projectID].name, projectID, task.title, task.desc,
         task.dueDate, task.priority, task.done, task.id);
     });
   }
@@ -46,7 +46,7 @@ export const addTaskToProject = () => {
     const selectedProject = projectList[projectID];
     const id = selectedProject.tasks.length;
     const done = false;
-    const newTasks = Task(titleInput, descInput, dateInput, priorityInput, done, id)
+    const newTasks = Task(titleInput, descInput, dateInput, priorityInput, done, id);
     selectedProject.tasks.push(newTasks);
     updateLocalStorage(projectList);
     renderSingleTask(projectID, titleInput, descInput, dateInput, priorityInput, done, id);

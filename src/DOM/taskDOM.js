@@ -43,7 +43,7 @@ export const renderTaskCard = (name, projectID, title,
                       <button id='editTask' class="${name}${id}" job="save" pid="${projectID}" tid="${id}">Save changes</button>
                     </div>                    
                   </div>
-                </div>`
+                </div>`;
   const position = 'afterbegin';
   list.insertAdjacentHTML(position, item);
 };

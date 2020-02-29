@@ -43,7 +43,7 @@ const purge = (() => {
 
 const dropdownRender = (() => {
   const listProject = document.getElementById('listProject');
-  listProject.addEventListener('change', iterateTasks)
+  listProject.addEventListener('change', iterateTasks);
 })();
 
 const removeProject = (() => {

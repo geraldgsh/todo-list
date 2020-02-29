@@ -22,7 +22,7 @@ export class BulmaModal {
   }
 
   close_data() {
-    const modalClose = this.elem.querySelectorAll("[data-bulma-modal='close'], .modal-background")
+    const modalClose = this.elem.querySelectorAll("[data-bulma-modal='close'], .modal-background");
     const that = this;
     modalClose.forEach(function(e) {
       e.addEventListener('click', function() {
@@ -39,7 +39,7 @@ export class BulmaModal {
   }
 
   on_close() {
-    const event = new Event('modal:close'); 
+    const event = new Event('modal:close');
     this.elem.dispatchEvent(event);
   }
 
