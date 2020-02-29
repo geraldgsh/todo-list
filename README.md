@@ -1,10 +1,13 @@
+# Note to TSE
+Student success have permitted me to work on my own. Hence the small number of commits.
+
 # Microverse Project Title - Todo List
 [Collaborative Project]
 Javascript
 
 ### Snapshot
 
-![](-)
+![](https://github.com/geraldgsh/todo-list/blob/feature/dist/media/amie.screenshot.JPG)
 
 ### Introduction.
 The Todo list project comes after the student has learned about:
