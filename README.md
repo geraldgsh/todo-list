@@ -79,7 +79,7 @@ and see below.
 a. view all projects
 ![](https://github.com/geraldgsh/todo-list/blob/feature/dist/media/project-card.jpg)
 b. view all todos in each project (probably just the title and duedate.. perhaps changing color for different priorities)
-![](-)
+![](https://github.com/geraldgsh/todo-list/blob/feature/dist/media/whole.JPG)
 c. expand a single todo to see/edit it’s details
 ```sh
 See image above
@@ -378,7 +378,7 @@ This is a weather app built with Bulma, Webpack, Bootstrap, JS, CSS & HTML.
 Checkout our [wikipage](https://github.com/geraldgsh/todo-list/wiki) for more details. 
 
 #### Live Demo
-[Demo]()
+[Demo](https://raw.githack.com/geraldgsh/todo-list/feature/dist/index.html)
 
 #### Getting Started
 Clone repo and run index.html
