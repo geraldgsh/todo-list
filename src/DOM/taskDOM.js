@@ -1,13 +1,16 @@
-export const renderTaskCard = (name, projectID, title, desc, dueDate, priority, done, id) => {
-  const later = new Date(dueDate.split("-").join(","))
-  const today  = new Date();
-  const remainingDays = Math.ceil((later - today) / (1000 * 3600 * 24))
-  
+/* eslint-disable linebreak-style */
+/* eslint-disable import/prefer-default-export */
+export const renderTaskCard = (name, projectID, title,
+  desc, dueDate, priority, done, id) => {
+  const list = document.getElementById('list');
+  const later = new Date(dueDate.split('-').join(','));
+  const today = new Date();
+  const remainingDays = Math.ceil((later - today) / (1000 * 3600 * 24));
   const CHECK = 'fa-check-circle';
   const UNCHECK = 'fa-circle';
-  const LINE_THROUGH = "lineThrough";
+  const LINE_THROUGH = 'lineThrough';
   const DONE = done ? CHECK : UNCHECK;
-  const LINE = done ? LINE_THROUGH : "";
+  const LINE = done ? LINE_THROUGH : '';
   const item = `<div class="card">
                   <header class="card-header">
                     <div>
@@ -41,6 +44,6 @@ export const renderTaskCard = (name, projectID, title, desc, dueDate, priority, 
                     </div>                    
                   </div>
                 </div>`
-  const position = 'afterbegin'
+  const position = 'afterbegin';
   list.insertAdjacentHTML(position, item);
 };

@@ -1,9 +1,10 @@
+/* eslint-disable linebreak-style */
 export const projectList = [];
 
 export const Project = (name, id) => ({
   name,
   id,
-  tasks: []
+  tasks: [],
 });
 
 export const Task = (title, desc, dueDate, priority, done, id) => ({
@@ -12,5 +13,5 @@ export const Task = (title, desc, dueDate, priority, done, id) => ({
   dueDate,
   priority,
   done,
-  id
-})
+  id,
+});
