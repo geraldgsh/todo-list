@@ -3,6 +3,7 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-undef */
 /* eslint-disable no-shadow */
+import swal from 'sweetalert';
 import { renderTaskCard } from '../DOM/taskDOM';
 import { projectList, Task } from '../modules/constructor';
 import { updateLocalStorage } from '../modules/localStorage';
@@ -40,7 +41,7 @@ export const addTaskToProject = () => {
   const descInput = document.getElementById('descInput').value;
   const priorityInput = document.getElementById('priorityInput').value;
   if (titleInput === '' || dateInput === '' || descInput === '') {
-    swal("Oops" ,  "Please fill in missing field(s) and/or later date" ,  "error");
+    swal('Oops', 'Please fill in missing field(s) and/or later date', 'error');
   } else {
     const selectedProject = projectList[projectID];
     const id = selectedProject.tasks.length;
@@ -89,7 +90,7 @@ export const updateTask = (element) => {
   const dateEdit = document.getElementById(`dateEdit${pid}${tid}`).value;
   const descEdit = document.getElementById(`descEdit${pid}${tid}`).value;
   if (titleEdit === '' || dateEdit === '' || descEdit === '') {
-    swal("Oops" ,  "Please fill in missing field(s) and/or later date" ,  "error");
+    swal('Oops', 'Please fill in missing field(s) and/or later date', 'error');
   } else {
     projectList[pid].tasks[tid].title = titleEdit;
     projectList[pid].tasks[tid].dueDate = dateEdit;

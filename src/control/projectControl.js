@@ -1,10 +1,12 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable no-shadow */
 /* eslint-disable no-empty */
+import swal from 'sweetalert';
 import { addProjectToTaskDropdown } from '../DOM/projectDOM';
 import { projectList, Project } from '../modules/constructor';
 import { updateLocalStorage } from '../modules/localStorage';
 import { BulmaModal } from '../modules/bulmaModal';
+
 
 export const renderProjects = () => {
   const projectList = JSON.parse(localStorage.getItem('projectList'));
@@ -20,7 +22,7 @@ export const addProjectToList = () => {
   const projectModal = new BulmaModal('#projectModal');
   const projectInput = document.getElementById('projectInput').value;
   if (projectList.some((project) => project.name === projectInput)) {
-    swal("Oops" ,  "Duplicate project!" ,  "error");
+    swal('Oops', 'Duplicate project!', 'error');
   } else {
     const id = projectList.length;
     const newProject = Project(projectInput, id);
