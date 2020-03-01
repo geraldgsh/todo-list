@@ -2,7 +2,6 @@
 /* eslint-disable no-empty */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-undef */
-/* eslint-disable no-alert */
 /* eslint-disable no-shadow */
 import { renderTaskCard } from '../DOM/taskDOM';
 import { projectList, Task } from '../modules/constructor';
@@ -41,7 +40,7 @@ export const addTaskToProject = () => {
   const descInput = document.getElementById('descInput').value;
   const priorityInput = document.getElementById('priorityInput').value;
   if (titleInput === '' || dateInput === '' || descInput === '') {
-    alert('Please fill in missing field(s) and/or later date');
+    swal("Oops" ,  "Please fill in missing field(s) and/or later date" ,  "error");
   } else {
     const selectedProject = projectList[projectID];
     const id = selectedProject.tasks.length;
@@ -90,7 +89,7 @@ export const updateTask = (element) => {
   const dateEdit = document.getElementById(`dateEdit${pid}${tid}`).value;
   const descEdit = document.getElementById(`descEdit${pid}${tid}`).value;
   if (titleEdit === '' || dateEdit === '' || descEdit === '') {
-    alert('Please fill in missing field(s) and/or later date');
+    swal("Oops" ,  "Please fill in missing field(s) and/or later date" ,  "error");
   } else {
     projectList[pid].tasks[tid].title = titleEdit;
     projectList[pid].tasks[tid].dueDate = dateEdit;

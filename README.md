@@ -104,6 +104,36 @@ const updateLocalStorage = (arr) => {
 8. Since you are probably already using webpack, adding external libraries from npm is a cinch! You might want to consider using the following useful library in your code:
 date-fns gives you a bunch of handy functions for formatting and manipulating dates and times.
 
+### Sweetalert setup
+
+#### Installation
+
+###### NPM/Yarn
+
+NPM combined with a tool like Browserify or Webpack is the recommended method of installing SweetAlert.
+
+```sh
+npm install sweetalert
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.11 (node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.11: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+
++ sweetalert@2.1.2
+added 3 packages from 3 contributors, removed 50 packages and audited 5678 packages in 9.646s
+
+20 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+```
+
+##### CDN
+
+You can also find SweetAlert on unpkg and jsDelivr and use the global swal variable.
+
+```html
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+```
+
 ### Linter Setup
 
 Clone file [content](https://github.com/microverseinc/linters-config/tree/master/javascript) into root directory (except for readme.md)

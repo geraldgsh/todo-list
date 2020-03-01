@@ -1,6 +1,5 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable no-shadow */
-/* eslint-disable no-alert */
 /* eslint-disable no-empty */
 import { addProjectToTaskDropdown } from '../DOM/projectDOM';
 import { projectList, Project } from '../modules/constructor';
@@ -21,7 +20,7 @@ export const addProjectToList = () => {
   const projectModal = new BulmaModal('#projectModal');
   const projectInput = document.getElementById('projectInput').value;
   if (projectList.some((project) => project.name === projectInput)) {
-    alert('Duplicate entry');
+    swal("Oops" ,  "Duplicate project!" ,  "error");
   } else {
     const id = projectList.length;
     const newProject = Project(projectInput, id);
