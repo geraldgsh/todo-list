@@ -126,6 +126,12 @@ added 3 packages from 3 contributors, removed 50 packages and audited 5678 packa
 found 0 vulnerabilities
 ```
 
+Import it into your application:
+
+```javascript
+import swal from 'sweetalert';
+```
+
 ##### CDN
 
 You can also find SweetAlert on unpkg and jsDelivr and use the global swal variable.
