@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable no-undef */
 /* eslint-disable no-shadow */
 /* eslint-disable no-empty */
 import { addProjectToTaskDropdown } from '../DOM/projectDOM';
