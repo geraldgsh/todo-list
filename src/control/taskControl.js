@@ -3,7 +3,6 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-undef */
 /* eslint-disable no-shadow */
-import swal from 'sweetalert';
 import { renderTaskCard } from '../DOM/taskDOM';
 import { projectList, Task } from '../modules/constructor';
 import { updateLocalStorage } from '../modules/localStorage';

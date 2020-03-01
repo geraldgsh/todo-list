@@ -1,7 +1,6 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable no-shadow */
 /* eslint-disable no-empty */
-import swal from 'sweetalert';
 import { addProjectToTaskDropdown } from '../DOM/projectDOM';
 import { projectList, Project } from '../modules/constructor';
 import { updateLocalStorage } from '../modules/localStorage';
