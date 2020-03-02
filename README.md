@@ -53,7 +53,15 @@ See image below
 ```
 
 3. Your todo list should have projects or separate lists of todos. When a user first opens the app, there should be some sort of ‘default’ project to which all of their todos are put. Users should be able to create new projects and choose which project their todos go into.
-![](https://github.com/geraldgsh/todo-list/blob/feature/dist/media/task-card.JPG)
+![](https://github.com/geraldgsh/todo-list/blob/feature/dist/media/default_task.JPG)
+
+```sh
+./src
+
+|
+├── starter
+|   ├── starterProjectTask.js
+```
 
 and see below.
 
@@ -73,6 +81,9 @@ and see below.
 |   ├── BulmaModal.js
 |   ├── constructor.js
 |   ├── localStorage.js
+|
+├── starter
+|   ├── starterProjectTask.js
 ```
 
 5. The look of the User Interface is up to you, but it should be able to do the following:

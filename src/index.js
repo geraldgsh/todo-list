@@ -12,6 +12,7 @@ import {
 import { updateLocalStorage } from './modules/localStorage';
 import { projectList } from './modules/constructor';
 import { BulmaModal } from './modules/bulmaModal';
+import { starterProject, starterTask } from './starter/starterProjectTask';
 
 // show todays date
 const showDate = (() => {
@@ -90,6 +91,10 @@ const taskUpdate = (() => {
       }
     }
   });
+})();
+
+const starter = (() => {
+  starterProject();
 })();
 
 const start = (() => {

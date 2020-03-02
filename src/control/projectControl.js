@@ -7,7 +7,6 @@ import { projectList, Project } from '../modules/constructor';
 import { updateLocalStorage } from '../modules/localStorage';
 import { BulmaModal } from '../modules/bulmaModal';
 
-
 export const renderProjects = () => {
   const projectList = JSON.parse(localStorage.getItem('projectList'));
   if (projectList === null) {
