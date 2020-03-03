@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */
-
 import { addProjectToList, renderProjects } from './control/projectControl';
+import addTaskToProject from './control/taskControl';
 import {
-  addTaskToProject, iterateTasks, completeTask,
-  removeTask, updateTask, editTask,
-} from './control/taskControl';
+  iterateTasks,
+  completeTask,
+  removeTask,
+  updateTask,
+  editTask,
+} from './DOM/taskDOM';
 import { updateLocalStorage } from './modules/localStorage';
 import { projectList } from './modules/constructor';
 import { BulmaModal } from './modules/bulmaModal';
@@ -58,11 +61,15 @@ const modalOpen = (() => {
   const projectModal = new BulmaModal('#projectModal');
   const newTask = document.querySelector('#newTask');
   const taskModal = new BulmaModal('#taskModal');
+  const closeTask = document.getElementById('closeTask');
   newProject.addEventListener('click', () => {
     projectModal.show();
   });
   newTask.addEventListener('click', () => {
     taskModal.show();
+  });
+  closeTask.addEventListener('click', () => {
+    taskModal.close();
   });
 })();
 

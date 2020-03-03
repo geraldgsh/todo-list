@@ -1,7 +1,4 @@
-# Note to TSE
-Student success have permitted me to work on my own. Hence the small number of commits.
-
-# Microverse Project Title - Todo List
+S# Microverse Project Title - Todo List
 [Collaborative Project]
 Javascript
 

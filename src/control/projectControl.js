@@ -1,4 +1,5 @@
-import { addProjectToTaskDropdown } from '../DOM/projectDOM';
+/* eslint-disable no-undef */
+import addProjectToTaskDropdown from '../DOM/projectDOM';
 import { projectList, Project } from '../modules/constructor';
 import { updateLocalStorage } from '../modules/localStorage';
 import { BulmaModal } from '../modules/bulmaModal';
@@ -10,11 +11,9 @@ export const renderProjects = () => {
   });
 };
 
-export const addProjectToList = () => {
+export const addProjectToList = (projectInput) => {
   const projectModal = new BulmaModal('#projectModal');
-  const projectInput = document.getElementById('projectInput').value;
   if (projectList.some((project) => project.name === projectInput)) {
-    // eslint-disable-next-line no-undef
     swal('Oops', 'Duplicate project!', 'error');
   } else {
     const id = projectList.length;
