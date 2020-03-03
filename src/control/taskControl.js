@@ -1,4 +1,4 @@
-import swal from 'sweetalert';
+/* eslint-disable no-undef */
 import { renderTaskCard } from '../DOM/taskDOM';
 import { projectList, Task } from '../modules/constructor';
 import { updateLocalStorage } from '../modules/localStorage';

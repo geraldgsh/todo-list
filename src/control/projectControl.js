@@ -1,4 +1,3 @@
-import swal from 'sweetalert';
 import { addProjectToTaskDropdown } from '../DOM/projectDOM';
 import { projectList, Project } from '../modules/constructor';
 import { updateLocalStorage } from '../modules/localStorage';
@@ -15,6 +14,7 @@ export const addProjectToList = () => {
   const projectModal = new BulmaModal('#projectModal');
   const projectInput = document.getElementById('projectInput').value;
   if (projectList.some((project) => project.name === projectInput)) {
+    // eslint-disable-next-line no-undef
     swal('Oops', 'Duplicate project!', 'error');
   } else {
     const id = projectList.length;
