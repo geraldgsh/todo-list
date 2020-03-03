@@ -1,20 +1,16 @@
 /* eslint-disable linebreak-style */
-/* eslint-disable no-undef */
-/* eslint-disable no-shadow */
-/* eslint-disable no-empty */
+import swal from 'sweetalert';
 import { addProjectToTaskDropdown } from '../DOM/projectDOM';
 import { projectList, Project } from '../modules/constructor';
 import { updateLocalStorage } from '../modules/localStorage';
 import { BulmaModal } from '../modules/bulmaModal';
 
+
 export const renderProjects = () => {
   const projectList = JSON.parse(localStorage.getItem('projectList'));
-  if (projectList === null) {
-  } else {
-    projectList.forEach((project) => {
-      addProjectToTaskDropdown(project.name, project.id);
-    });
-  }
+  projectList.forEach((project) => {
+    addProjectToTaskDropdown(project.name, project.id);
+  });
 };
 
 export const addProjectToList = () => {

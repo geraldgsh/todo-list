@@ -93,13 +93,10 @@ const taskUpdate = (() => {
   });
 })();
 
-const starter = (() => {
-  starterProject();
-})();
-
 const start = (() => {
   const projectListing = JSON.parse(localStorage.getItem('projectList'));
   if (projectListing === null) {
+    starterProject();
   } else {
     projectListing.forEach((project) => {
       projectList.push(project);

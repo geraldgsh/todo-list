@@ -1,5 +1,5 @@
 /* eslint-disable linebreak-style */
-/* eslint-disable import/prefer-default-export */
-export const updateLocalStorage = (arr) => {
+const updateLocalStorage = (arr) => {
   window.localStorage.setItem('projectList', JSON.stringify(arr));
 };
+module.exports = { updateLocalStorage, default: updateLocalStorage };

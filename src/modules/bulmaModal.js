@@ -8,20 +8,20 @@
 export class BulmaModal {
   constructor(selector) {
     this.elem = document.querySelector(selector);
-    this.close_data();
+    this.closeData();
   }
 
   show() {
     this.elem.classList.toggle('is-active');
-    this.on_show();
+    this.onShow();
   }
 
   close() {
     this.elem.classList.toggle('is-active');
-    this.on_close();
+    this.onClose();
   }
 
-  close_data() {
+  closeData() {
     const modalClose = this.elem.querySelectorAll("[data-bulma-modal='close'], .modal-background");
     const that = this;
     modalClose.forEach(function(e) {
@@ -33,12 +33,12 @@ export class BulmaModal {
     });
   }
 
-  on_show() {
+  onShow() {
     const event = new Event('modal:show');
     this.elem.dispatchEvent(event);
   }
 
-  on_close() {
+  onClose() {
     const event = new Event('modal:close');
     this.elem.dispatchEvent(event);
   }
