@@ -1,5 +1,5 @@
-/* eslint-disable linebreak-style */
 /* eslint-disable import/prefer-default-export */
+
 import { projectList } from '../modules/constructor';
 
 export const addProjectToTaskDropdown = (name, id) => {

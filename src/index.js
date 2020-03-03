@@ -1,9 +1,5 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable no-empty */
-/* eslint-disable func-names */
-/* eslint-disable space-before-function-paren */
-/* eslint-disable prefer-arrow-callback */
 /* eslint-disable no-unused-vars */
+
 import { addProjectToList, renderProjects } from './control/projectControl';
 import {
   addTaskToProject, iterateTasks, completeTask,
@@ -12,7 +8,7 @@ import {
 import { updateLocalStorage } from './modules/localStorage';
 import { projectList } from './modules/constructor';
 import { BulmaModal } from './modules/bulmaModal';
-import { starterProject, starterTask } from './starter/starterProjectTask';
+import { starterProject } from './starter/starterProjectTask';
 
 // show todays date
 const showDate = (() => {
@@ -62,11 +58,10 @@ const modalOpen = (() => {
   const projectModal = new BulmaModal('#projectModal');
   const newTask = document.querySelector('#newTask');
   const taskModal = new BulmaModal('#taskModal');
-  // eslint-disable-next-line func-names
-  newProject.addEventListener('click', function() {
+  newProject.addEventListener('click', () => {
     projectModal.show();
   });
-  newTask.addEventListener('click', function() {
+  newTask.addEventListener('click', () => {
     taskModal.show();
   });
 })();
@@ -74,10 +69,11 @@ const modalOpen = (() => {
 const taskUpdate = (() => {
   const list = document.getElementById('list');
   // target the items create dynamically
-  list.addEventListener('click', function(event) {
+  list.addEventListener('click', (event) => {
     event.preventDefault();
     const element = event.target; // return the clicked element inside list
     if (element.attributes.job === undefined) {
+      let filler;
     } else {
       const elementJob = element.attributes.job.value; // complete or delete
       if (elementJob === 'complete') {

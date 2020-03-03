@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 import { projectList, Project, Task } from '../modules/constructor';
 import { updateLocalStorage } from '../modules/localStorage';
 
@@ -6,7 +5,7 @@ export const starterTask = (projectID) => {
   const selectedProject = projectList[projectID];
   const titleInput = 'Buy bricks';
   const descInput = 'Source for brick supplier';
-  const dateInput = '2020-09-05';
+  const dateInput = '2020-11-11';
   const priorityInput = 'Low';
   const id = selectedProject.tasks.length;
   const done = false;

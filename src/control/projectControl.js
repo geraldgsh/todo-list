@@ -1,10 +1,8 @@
-/* eslint-disable linebreak-style */
 import swal from 'sweetalert';
 import { addProjectToTaskDropdown } from '../DOM/projectDOM';
 import { projectList, Project } from '../modules/constructor';
 import { updateLocalStorage } from '../modules/localStorage';
 import { BulmaModal } from '../modules/bulmaModal';
-
 
 export const renderProjects = () => {
   const projectList = JSON.parse(localStorage.getItem('projectList'));

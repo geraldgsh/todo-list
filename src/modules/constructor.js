@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 export const projectList = [];
 
 export const Project = (name, id) => ({

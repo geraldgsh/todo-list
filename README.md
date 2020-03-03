@@ -282,7 +282,7 @@ added 61 packages from 37 contributors, updated 1 package and audited 387 packag
 found 0 vulnerabilities
 
 Successfully created .eslintrc.json file in 
-/weather-app
+/todo-list
 ESLint was installed locally. We recommend using this local copy instead of your globally-installed copy.
 ```
 
@@ -353,14 +353,14 @@ Webpack can watch files and recompile whenever they change. Turn on watch mode. 
 ./package.json
 
 {
-  "name": "weather-app",
+  "name": "todo-list",
   "version": "1.0.0",
-  "description": "Weather APP",
-  "main": "src/index.js",
+  "description": "A Todo list written in Javascript.",
+  "main": "'./src/index.js'",
   "scripts": {
     "build": "webpack --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --watch"
+    "watch": "webpack --progress --watch"
   },
   .
   .
@@ -417,8 +417,8 @@ Entrypoint main = main.js
 
 ![](https://github.com/geraldgsh/restaurant-page/blob/development/dist/media/githack.jpg?raw=true)
 
-#### Weather APP
-This is a weather app built with Bulma, Webpack, Bootstrap, JS, CSS & HTML.
+#### Todo-list
+This is a Todo-list app built with JS.
 
 ### Wiki
 

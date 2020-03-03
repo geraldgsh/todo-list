@@ -1,8 +1,4 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable no-empty */
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable no-undef */
-/* eslint-disable no-shadow */
+import swal from 'sweetalert';
 import { renderTaskCard } from '../DOM/taskDOM';
 import { projectList, Task } from '../modules/constructor';
 import { updateLocalStorage } from '../modules/localStorage';
@@ -13,24 +9,18 @@ export const iterateTasks = () => {
   list.innerHTML = '';
   const projectID = document.getElementById('listProject').value;
   const projectList = JSON.parse(localStorage.getItem('projectList'));
-  if (projectList[projectID] === undefined || projectList === null) {
-  } else {
-    projectList[projectID].tasks.forEach((task) => {
-      renderTaskCard(projectList[projectID].name, projectID, task.title, task.desc,
-        task.dueDate, task.priority, task.done, task.id);
-    });
-  }
+  projectList[projectID].tasks.forEach((task) => {
+    renderTaskCard(projectList[projectID].name, projectID, task.title, task.desc,
+      task.dueDate, task.priority, task.done, task.id);
+  });
 };
 
 export const renderSingleTask = (projectID, titleInput, descInput,
   dateInput, priorityInput, done, id) => {
   const optionValue = document.getElementById('listProject').value;
-  if (projectID !== optionValue) {
-  } else {
-    const projectList = JSON.parse(localStorage.getItem('projectList'));
-    renderTaskCard(projectList[optionValue].name, projectID, titleInput,
-      descInput, dateInput, priorityInput, done, id);
-  }
+  const projectList = JSON.parse(localStorage.getItem('projectList'));
+  renderTaskCard(projectList[optionValue].name, projectID, titleInput,
+    descInput, dateInput, priorityInput, done, id);
 };
 
 export const addTaskToProject = () => {
@@ -65,11 +55,8 @@ export const completeTask = (element) => {
   projectList[pid].tasks[tid].done = !projectList[pid].tasks[tid].done;
   updateLocalStorage(projectList);
   const targets = document.getElementsByClassName(element.id);
-  for (const i in targets) {
-    if (targets[i].classList === undefined) {
-    } else {
-      targets[i].classList.toggle(LINE_THROUGH);
-    }
+  for (let i = 0; i < targets.length; i += 1) {
+    targets[i].classList.toggle(LINE_THROUGH);
   }
 };
 
@@ -103,10 +90,7 @@ export const updateTask = (element) => {
 export const editTask = (element) => {
   const SHOW = 'show';
   const targets = document.getElementsByClassName(element.id);
-  for (const i in targets) {
-    if (targets[i].classList === undefined) {
-    } else {
-      targets[i].classList.toggle(SHOW);
-    }
+  for (let i = 0; i < targets.length; i += 1) {
+    targets[i].classList.toggle(SHOW);
   }
 };

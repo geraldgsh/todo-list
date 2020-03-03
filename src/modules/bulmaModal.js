@@ -1,10 +1,6 @@
-/* eslint-disable linebreak-style */
-/* eslint-disable space-before-function-paren */
-/* eslint-disable func-names */
-/* eslint-disable camelcase */
 /* eslint-disable prefer-arrow-callback */
 /* eslint-disable import/prefer-default-export */
-// modal
+
 export class BulmaModal {
   constructor(selector) {
     this.elem = document.querySelector(selector);
@@ -24,8 +20,8 @@ export class BulmaModal {
   closeData() {
     const modalClose = this.elem.querySelectorAll("[data-bulma-modal='close'], .modal-background");
     const that = this;
-    modalClose.forEach(function(e) {
-      e.addEventListener('click', function() {
+    modalClose.forEach(function closure(e) {
+      e.addEventListener('click', function shutData() {
         that.elem.classList.toggle('is-active');
         const event = new Event('modal:close');
         that.elem.dispatchEvent(event);

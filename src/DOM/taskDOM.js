@@ -1,5 +1,5 @@
-/* eslint-disable linebreak-style */
 /* eslint-disable import/prefer-default-export */
+
 export const renderTaskCard = (name, projectID, title,
   desc, dueDate, priority, done, id) => {
   const list = document.getElementById('list');
