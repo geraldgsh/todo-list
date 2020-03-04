@@ -73,6 +73,8 @@ and see below.
 ├── DOM
 |   ├── projectDOM.js
 |   ├── taskDOM.js
+|   ├── projectInput.js
+|   ├── taskInput.js
 |
 ├── Modules
 |   ├── BulmaModal.js
@@ -140,7 +142,7 @@ Import it into your application:
 import swal from 'sweetalert';
 ```
 
-##### CDN
+##### Sweetalert CDN
 
 You can also find SweetAlert on unpkg and jsDelivr and use the global swal variable.
 
