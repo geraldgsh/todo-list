@@ -1,7 +1,6 @@
-import { addProjectToTaskDropdown } from '../DOM/projectDOM';
+import { addProjectToTaskDropdown, closeProjectForm } from '../DOM/projectDOM';
 import { projectList, Project } from '../modules/constructor';
 import { updateLocalStorage } from '../modules/localStorage';
-import { BulmaModal } from '../modules/bulmaModal';
 
 export const renderProjects = () => {
   const projectList = JSON.parse(localStorage.getItem('projectList'));
@@ -11,7 +10,6 @@ export const renderProjects = () => {
 };
 
 export const addProjectToList = (projectInput) => {
-  const projectModal = new BulmaModal('#projectModal');
   if (projectList.some((project) => project.name === projectInput)) {
     // eslint-disable-next-line no-undef
     swal('Oops', 'Duplicate project!', 'error');
@@ -21,6 +19,6 @@ export const addProjectToList = (projectInput) => {
     projectList.push(newProject);
     updateLocalStorage(projectList);
     addProjectToTaskDropdown(projectInput, id);
-    projectModal.close();
+    closeProjectForm();
   }
 };

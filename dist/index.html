@@ -11,7 +11,18 @@
 </head>
 <body>
 
-  <div class="modal" id="projectModal">
+  <div id="projectModal">
+    <div class="form-popup" id="popupForm">
+      <form action="/action_page.php" class="form-container">
+        <h2>Add Project</h2>
+        <input type="text" id="projectInput"  placeholder="Project title" name="project" required>
+        <button id = "addProject" type="submit" class="button is-success">Save</button>
+        <button id = "closeProject" type="button" class="button cancel">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- <div class="modal" id="projectModal">
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head">
@@ -29,9 +40,54 @@
         <button class="button" data-bulma-modal="close">Cancel</button>
       </footer>
     </div>
+  </div> -->
+
+  <div id="taskModal">
+    <div class="form-popup" id="popupForm">
+      <form action="/action_page.php" class="form-container">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Add Task</p>
+        </header>
+        <div>
+          <div class="add-to-do">
+            <div class="select">
+              <select id="projectEntry">
+              </select>
+            </div>
+          </div>
+          <div class="add-to-do">
+            <i class="fas fa-hammer"></i>
+            <input id="titleInput" type="text" placeholder="Task Name">
+          </div>
+          <div class="add-to-do">            
+            <i class="fas fa-hourglass-half"></i>
+            <input id="dateInput" type="date">
+          </div>
+          <div class="add-to-do desc">
+            <div class="field">
+              <div class="control">
+                <textarea id="descInput" class="textarea is-info" maxlength="128" placeholder="Task Description"></textarea>
+              </div>
+            </div>          
+          </div>
+          <div class="add-to-do">            
+            <div class="select">
+              <select id="priorityInput">
+                <option value="Low">Low</option>
+                <option value="High">High</option>
+              </select>
+            </div>           
+          </div>
+        </div>
+        <footer class="modal-card-foot">
+          <button id='addTask' class="button is-success">Save changes</button>
+          <button id='closeTask' class="button cancel">Cancel</button>
+        </footer>
+      </form>
+    </div>
   </div>
   
-  <div class="modal" id="taskModal">
+  <!-- <div class="modal" id="taskModal">
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head">
@@ -74,7 +130,7 @@
         <button class="button" data-bulma-modal="close">Cancel</button>
       </footer>
     </div>
-  </div> 
+  </div>  -->
 
 	<section class="columns is-gapless">
 		<div class="sidebar column is-3">

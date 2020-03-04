@@ -1,17 +1,18 @@
 /* eslint-disable no-unused-vars */
 
-import { addProjectToList, renderProjects } from './control/projectControl';
-import {
-  addTaskToProject, completeTask,
-  removeTask, updateTask, editTask,
-} from './control/taskControl';
+import { renderProjects } from './control/projectControl';
 import { iterateTasks } from './DOM/taskDOM';
 import { updateLocalStorage } from './modules/localStorage';
 import { projectList } from './modules/constructor';
-import { BulmaModal } from './modules/bulmaModal';
 import { starterProject } from './starter/starterProjectTask';
 import newProjectInput from './DOM/projectInput';
-import newTaskInput from './DOM/taskInput';
+import {
+  editTask,
+  newTaskInput,
+  editTaskInput,
+  completeTask,
+  removeTask,
+} from './DOM/taskInput';
 
 // show todays date
 const showDate = (() => {
@@ -49,23 +50,31 @@ const dropdownRender = (() => {
 const removeProject = (() => {
   const pid = document.getElementById('listProject').value;
   const deleteProject = document.getElementById('deleteProject');
+  const project = Number(pid);
+  const pIndex = projectList.map((p) => p.id).indexOf(project);
   deleteProject.addEventListener('click', () => {
-    projectList.splice(pid, 1);
+    projectList.splice(pIndex, 1);
     updateLocalStorage(projectList);
     window.location.reload();
   });
 })();
 
-const modalOpen = (() => {
+const modalHandler = (() => {
   const newProject = document.querySelector('#newProject');
-  const projectModal = new BulmaModal('#projectModal');
+  const closeProject = document.querySelector('#closeProject');
   const newTask = document.querySelector('#newTask');
-  const taskModal = new BulmaModal('#taskModal');
+  const closeTask = document.querySelector('#closeTask');
   newProject.addEventListener('click', () => {
-    projectModal.show();
+    document.getElementById('projectModal').style.display = 'block';
+  });
+  closeProject.addEventListener('click', () => {
+    document.getElementById('projectModal').style.display = 'none';
   });
   newTask.addEventListener('click', () => {
-    taskModal.show();
+    document.getElementById('taskModal').style.display = 'block';
+  });
+  closeTask.addEventListener('click', () => {
+    document.getElementById('taskModal').style.display = 'none';
   });
 })();
 
@@ -86,7 +95,7 @@ const taskUpdate = (() => {
       } else if (elementJob === 'edit') {
         editTask(element);
       } else if (elementJob === 'save') {
-        updateTask(element);
+        editTaskInput(element);
       }
     }
   });
@@ -104,3 +113,33 @@ const start = (() => {
   renderProjects();
   iterateTasks();
 })();
+
+window.onclick = function(event) {
+  var modal = document.getElementById('projectModal');
+  if (event.target == modal) {
+    closeProject();
+  }
+}
+
+function closeProject() {
+  document.getElementById('projectModal').style.display = 'none';
+}
+
+window.onclick = function(event) {
+  var modal = document.getElementById('taskModal');
+  if (event.target == modal) {
+    closeTask();
+  }
+}
+
+function closeTask() {
+  document.getElementById('taskModal').style.display = 'none';
+}
+
+// const openForm = (() => {
+//   document.getElementById("loginPopup").style.display="block";
+// });
+
+
+// When the user clicks anywhere outside of the modal, close it
+

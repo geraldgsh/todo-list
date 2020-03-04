@@ -150,7 +150,7 @@ body {
 
 .add-to-do i {
     color: #4162f6;    
-    font-size: 40px;    
+    font-size: 34px;    
     position: absolute;
 }
 
@@ -162,7 +162,7 @@ body {
     left: 50px;
     padding-left:10px;
     position: absolute;
-    width: 310px;
+    max-width: 500px;
 }
 .add-to-do input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #4162f6;
@@ -238,3 +238,78 @@ div.card-content div button {
 div.card-content div button.show {
     display: block;
 }
+
+#projectModal, #taskModal {
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    display: none;   
+    height: 100%;
+    left: 0;   
+    padding-top: 100px; 
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+    /* Fix the button on the left side of the page */
+    .open-btn {
+    display: flex;
+    justify-content: left;
+    }
+    /* Style and fix the button on the page */
+    .open-button {
+    background-color: #1c87c9;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    }
+    /* Hide the Popup form */
+    .form-popup {
+    border: 2px solid #666;
+    z-index: 9;
+    max-width: 620px;
+    margin: 0 auto;
+    }
+    /* Styles for the form container */
+    .form-container {
+    max-width: 620px;
+    padding: 20px;
+    background-color: #fff;
+    }
+    /* Full-width for input fields */
+    .form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #eee;
+    }
+    /* When the inputs get focus, do something */
+    .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+    }
+    /* Style submit/login button */
+    .form-container .btn {
+    background-color: #8ebf42;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+    }
+    /* Style cancel button */
+    .form-container .cancel {
+    background-color: #cc0000;
+    }
+    /* Hover effects for buttons */
+    .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+    }

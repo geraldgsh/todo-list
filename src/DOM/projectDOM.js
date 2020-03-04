@@ -14,3 +14,8 @@ export const addProjectToTaskDropdown = (name, id) => {
   projectEntry.add(newOption1, projectList[id]);
   listProject.add(newOption2, listProject[id]);
 };
+
+export const closeProjectForm = () => {
+  document.forms[0].reset();
+  document.getElementById('projectModal').style.display = 'none';
+};

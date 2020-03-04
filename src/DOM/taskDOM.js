@@ -61,11 +61,7 @@ export const iterateTasks = () => {
   });
 };
 
-export const renderSingleTask = (projectID, titleInput, descInput,
-  dateInput, priorityInput, done, id) => {
-  const optionValue = document.getElementById('listProject').value;
-  const projectList = JSON.parse(localStorage.getItem('projectList'));
-  console.log(optionValue);
-  renderTaskCard(projectList[projectID].name, projectID, titleInput,
-    descInput, dateInput, priorityInput, done, id);
+export const closeTaskForm = () => {
+  document.forms[1].reset();
+  document.getElementById('taskModal').style.display = 'none';
 };
