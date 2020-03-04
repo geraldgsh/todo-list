@@ -76,6 +76,21 @@ const modalHandler = (() => {
   closeTask.addEventListener('click', () => {
     document.getElementById('taskModal').style.display = 'none';
   });
+  const projectClosure = () => {
+    document.getElementById('projectModal').style.display = 'none';
+  };
+  const taskClosure = () => {
+    document.getElementById('taskModal').style.display = 'none';
+  };
+  window.onclick = function closure(event) {
+    const projectModal = document.getElementById('projectModal');
+    const taskModal = document.getElementById('taskModal');
+    if (event.target === taskModal) {
+      taskClosure();
+    } else if (event.target === projectModal) {
+      projectClosure();
+    }
+  };
 })();
 
 const taskUpdate = (() => {
@@ -113,33 +128,3 @@ const start = (() => {
   renderProjects();
   iterateTasks();
 })();
-
-window.onclick = function(event) {
-  var modal = document.getElementById('projectModal');
-  if (event.target == modal) {
-    closeProject();
-  }
-}
-
-function closeProject() {
-  document.getElementById('projectModal').style.display = 'none';
-}
-
-window.onclick = function(event) {
-  var modal = document.getElementById('taskModal');
-  if (event.target == modal) {
-    closeTask();
-  }
-}
-
-function closeTask() {
-  document.getElementById('taskModal').style.display = 'none';
-}
-
-// const openForm = (() => {
-//   document.getElementById("loginPopup").style.display="block";
-// });
-
-
-// When the user clicks anywhere outside of the modal, close it
-
