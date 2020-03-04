@@ -33,7 +33,7 @@ export const completeTask = (element) => {
   const tIndex = projectList[pIndex].tasks.map((t) => t.id).indexOf(task);
   element.classList.toggle(CHECK);
   element.classList.toggle(UNCHECK);
-  projectList[pIndex].tasks[tIndex].done = !projectList[pIndex].tasks[tIndex].done; 
+  projectList[pIndex].tasks[tIndex].done = !projectList[pIndex].tasks[tIndex].done;
   updateLocalStorage(projectList);
   const targets = document.getElementsByClassName(element.id);
   for (let i = 0; i < targets.length; i += 1) {
