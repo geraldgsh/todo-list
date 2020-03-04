@@ -1,4 +1,4 @@
-S# Microverse Project Title - Todo List
+# Microverse Project Title - Todo List
 [Collaborative Project]
 Javascript
 

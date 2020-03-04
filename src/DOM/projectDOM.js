@@ -1,6 +1,8 @@
+/* eslint-disable import/prefer-default-export */
+
 import { projectList } from '../modules/constructor';
 
-export default function addProjectToTaskDropdown(name, id) {
+export const addProjectToTaskDropdown = (name, id) => {
   const projectEntry = document.getElementById('projectEntry');
   const listProject = document.getElementById('listProject');
   const newOption1 = document.createElement('option');
@@ -11,4 +13,4 @@ export default function addProjectToTaskDropdown(name, id) {
   newOption2.value = id;
   projectEntry.add(newOption1, projectList[id]);
   listProject.add(newOption2, listProject[id]);
-}
+};

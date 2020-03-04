@@ -1,17 +1,16 @@
 /* eslint-disable no-unused-vars */
+
 import { addProjectToList, renderProjects } from './control/projectControl';
-import addTaskToProject from './control/taskControl';
 import {
-  iterateTasks,
-  completeTask,
-  removeTask,
-  updateTask,
-  editTask,
-} from './DOM/taskDOM';
+  addTaskToProject, iterateTasks, completeTask,
+  removeTask, updateTask, editTask,
+} from './control/taskControl';
 import { updateLocalStorage } from './modules/localStorage';
 import { projectList } from './modules/constructor';
 import { BulmaModal } from './modules/bulmaModal';
 import { starterProject } from './starter/starterProjectTask';
+import newProjectInput from './DOM/projectInput';
+import newTaskInput from './DOM/taskInput';
 
 // show todays date
 const showDate = (() => {
@@ -23,13 +22,13 @@ const showDate = (() => {
 
 const addTask = (() => {
   document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('addTask').addEventListener('click', addTaskToProject);
+    document.getElementById('addTask').addEventListener('click', newTaskInput);
   });
 })();
 
 const addProject = (() => {
   document.addEventListener('DOMContentLoaded', () => {
-    document.getElementById('addProject').addEventListener('click', addProjectToList);
+    document.getElementById('addProject').addEventListener('click', newProjectInput);
   });
 })();
 
