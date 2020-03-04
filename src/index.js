@@ -61,15 +61,11 @@ const modalOpen = (() => {
   const projectModal = new BulmaModal('#projectModal');
   const newTask = document.querySelector('#newTask');
   const taskModal = new BulmaModal('#taskModal');
-  const closeTask = document.getElementById('closeTask');
   newProject.addEventListener('click', () => {
     projectModal.show();
   });
   newTask.addEventListener('click', () => {
     taskModal.show();
-  });
-  closeTask.addEventListener('click', () => {
-    taskModal.close();
   });
 })();
 
