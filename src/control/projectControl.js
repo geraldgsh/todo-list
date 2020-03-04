@@ -16,7 +16,7 @@ export const addProjectToList = (projectInput) => {
     // eslint-disable-next-line no-undef
     swal('Oops', 'Duplicate project!', 'error');
   } else {
-    const id = projectList.length;
+    const id = projectList[projectList.length - 1].id + 1;
     const newProject = Project(projectInput, id);
     projectList.push(newProject);
     updateLocalStorage(projectList);

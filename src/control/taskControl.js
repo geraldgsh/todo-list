@@ -4,36 +4,20 @@ import { projectList, Task } from '../modules/constructor';
 import { updateLocalStorage } from '../modules/localStorage';
 import { BulmaModal } from '../modules/bulmaModal';
 
-export const iterateTasks = () => {
-  const list = document.getElementById('list');
-  list.innerHTML = '';
-  const projectID = document.getElementById('listProject').value;
-  const projectList = JSON.parse(localStorage.getItem('projectList'));
-  projectList[projectID].tasks.forEach((task) => {
-    renderTaskCard(projectList[projectID].name, projectID, task.title, task.desc,
-      task.dueDate, task.priority, task.done, task.id);
-  });
-};
-
-export const renderSingleTask = (projectID, titleInput, descInput,
-  dateInput, priorityInput, done, id) => {
-  const optionValue = document.getElementById('listProject').value;
-  const projectList = JSON.parse(localStorage.getItem('projectList'));
-  renderTaskCard(projectList[optionValue].name, projectID, titleInput,
-    descInput, dateInput, priorityInput, done, id);
-};
-
 export const addTaskToProject = (projectID, titleInput, dateInput, descInput, priorityInput) => {
   if (titleInput === '' || dateInput === '' || descInput === '') {
     swal('Oops', 'Please fill in missing field(s) and/or later date', 'error');
   } else {
-    const selectedProject = projectList[projectID];
+    const project = Number(projectID);
+    const index = projectList.map((i) => i.id).indexOf(project);
+    const selectedProject = projectList[index];
     const id = selectedProject.tasks.length;
     const done = false;
     const newTasks = Task(titleInput, descInput, dateInput, priorityInput, done, id);
     selectedProject.tasks.push(newTasks);
     updateLocalStorage(projectList);
-    renderSingleTask(projectID, titleInput, descInput, dateInput, priorityInput, done, id);
+    renderTaskCard(projectList[index].name, project, titleInput,
+      descInput, dateInput, priorityInput, done, id);
     const taskModal = new BulmaModal('#taskModal');
     taskModal.close();
   }
@@ -45,9 +29,13 @@ export const completeTask = (element) => {
   const LINE_THROUGH = 'lineThrough';
   const pid = element.attributes.pid.value;
   const tid = element.attributes.tid.value;
+  const project = Number(pid);
+  const pIndex = projectList.map((p) => p.id).indexOf(project);
+  const task = Number(tid);
+  const tIndex = projectList[pIndex].tasks.map((t) => t.id).indexOf(task);
   element.classList.toggle(CHECK);
   element.classList.toggle(UNCHECK);
-  projectList[pid].tasks[tid].done = !projectList[pid].tasks[tid].done;
+  projectList[pIndex].tasks[tIndex].done = !projectList[pIndex].tasks[tIndex].done; 
   updateLocalStorage(projectList);
   const targets = document.getElementsByClassName(element.id);
   for (let i = 0; i < targets.length; i += 1) {
@@ -58,8 +46,12 @@ export const completeTask = (element) => {
 export const removeTask = (element) => {
   const pid = element.attributes.pid.value;
   const tid = element.attributes.tid.value;
-  const taskArr = projectList[pid].tasks;
-  taskArr.splice(tid, 1);
+  const project = Number(pid);
+  const pIndex = projectList.map((p) => p.id).indexOf(project);
+  const task = Number(tid);
+  const tIndex = projectList[pIndex].tasks.map((t) => t.id).indexOf(task);
+  const taskArr = projectList[pIndex].tasks;
+  taskArr.splice(tIndex, 1);
   updateLocalStorage(projectList);
   window.location.reload();
 };
@@ -70,13 +62,18 @@ export const updateTask = (element) => {
   const titleEdit = document.getElementById(`titleEdit${pid}${tid}`).value;
   const dateEdit = document.getElementById(`dateEdit${pid}${tid}`).value;
   const descEdit = document.getElementById(`descEdit${pid}${tid}`).value;
+  const priorityEdit = document.getElementById(`priorityEdit${pid}${tid}`).value;
+  const project = Number(pid);
+  const pIndex = projectList.map((p) => p.id).indexOf(project);
+  const task = Number(tid);
+  const tIndex = projectList[pIndex].tasks.map((t) => t.id).indexOf(task);
   if (titleEdit === '' || dateEdit === '' || descEdit === '') {
     swal('Oops', 'Please fill in missing field(s) and/or later date', 'error');
   } else {
-    projectList[pid].tasks[tid].title = titleEdit;
-    projectList[pid].tasks[tid].dueDate = dateEdit;
-    projectList[pid].tasks[tid].desc = descEdit;
-    projectList[pid].tasks[tid].priority = document.getElementById(`priorityEdit${pid}${tid}`).value;
+    projectList[pIndex].tasks[tIndex].title = titleEdit;
+    projectList[pIndex].tasks[tIndex].dueDate = dateEdit;
+    projectList[pIndex].tasks[tIndex].desc = descEdit;
+    projectList[pIndex].tasks[tIndex].priority = priorityEdit;
     updateLocalStorage(projectList);
     window.location.reload();
   }

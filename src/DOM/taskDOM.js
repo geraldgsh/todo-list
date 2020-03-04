@@ -47,3 +47,25 @@ export const renderTaskCard = (name, projectID, title,
   const position = 'afterbegin';
   list.insertAdjacentHTML(position, item);
 };
+
+export const iterateTasks = () => {
+  const list = document.getElementById('list');
+  list.innerHTML = '';
+  const projectID = document.getElementById('listProject').value;
+  const projectList = JSON.parse(localStorage.getItem('projectList'));
+  const project = Number(projectID);
+  const index = projectList.map((i) => i.id).indexOf(project);
+  projectList[index].tasks.forEach((task) => {
+    renderTaskCard(projectList[index].name, projectID, task.title, task.desc,
+      task.dueDate, task.priority, task.done, task.id);
+  });
+};
+
+export const renderSingleTask = (projectID, titleInput, descInput,
+  dateInput, priorityInput, done, id) => {
+  const optionValue = document.getElementById('listProject').value;
+  const projectList = JSON.parse(localStorage.getItem('projectList'));
+  console.log(optionValue);
+  renderTaskCard(projectList[projectID].name, projectID, titleInput,
+    descInput, dateInput, priorityInput, done, id);
+};

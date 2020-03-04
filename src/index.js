@@ -2,9 +2,10 @@
 
 import { addProjectToList, renderProjects } from './control/projectControl';
 import {
-  addTaskToProject, iterateTasks, completeTask,
+  addTaskToProject, completeTask,
   removeTask, updateTask, editTask,
 } from './control/taskControl';
+import { iterateTasks } from './DOM/taskDOM';
 import { updateLocalStorage } from './modules/localStorage';
 import { projectList } from './modules/constructor';
 import { BulmaModal } from './modules/bulmaModal';
