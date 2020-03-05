@@ -1,0 +1,317 @@
+html,
+body {
+  font-family: 'Titillium Web', sans-serif;
+  min-height: 100vh;
+}
+
+.columns {
+  min-height: 100vh;
+}
+
+.title {
+  color: white;
+}
+
+.sidebar {  
+  background: url('./media/sticky-notes.jpg') no-repeat top fixed;  
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
+  padding: 75px 0 50px 20%;
+  width: 100%;
+}
+
+/* ------------ header ------------ */
+.header {
+  height:200px;
+  background-image: url('./media/bg.png');
+  background-size: 100% 200%;
+  background-repeat: no-repeat;
+  border-radius: 15px 15px 0 0;
+  position: relative;
+}
+
+.clear {
+  height: 30px;
+  position: absolute;
+  right:20px;
+  top: 20px;
+  width : 30px;
+}
+
+.clear i {
+  color: #FFF;
+  font-size: 30px;    
+}
+
+.clear i:hover {
+  cursor: pointer;
+  transform: rotate(45deg);
+  text-shadow: 1px 3px 5px #000;    
+}
+
+#date {    
+  bottom: 10px;    
+  color: #FFF;
+  font-size: 25px;
+  font-family: 'Titillium Web', sans-serif;
+  left: 10px;
+  position: absolute;
+}
+
+/* ------------ content ------------ */
+.detail {
+  background-color: #FFF;
+  height: 350px;
+  max-height:350px;    
+  overflow: auto;
+  width:380px;
+}
+
+.detail::-webkit-scrollbar { 
+  display: none; 
+}
+
+.detail ul {
+  margin:0;
+  padding:0;    
+}
+
+.item {
+  border-bottom: 1px solid rgba(0,0,0,0.1);    
+  height: 45px;    
+  list-style: none;
+  margin: 0;
+  min-height: 45px;
+  padding: 0;
+  position: relative;
+  width:380px;
+}
+
+.item i.co {    
+  font-size: 25px;
+  left: 280px;
+  padding-left:5px;
+  position: absolute;    
+  top:10px;
+}
+
+.item i.co:hover {
+  color:#6eb200;
+  cursor: pointer;
+}
+
+.fa-check-circle {
+  color:#6eb200;
+}
+
+.item p.text {
+  background-color: #FFF;
+  font-size: 20px;
+  left:25px;
+  margin:0;
+  max-width:285px;
+  position: absolute;
+  padding:0;    
+  top:5px;    
+}
+
+.lineThrough {
+  color : #ccc;
+  text-decoration: line-through;    
+}
+
+.item i.de {    
+  font-size: 25px;
+  position: absolute;
+  right:40px;
+  top:10px;
+}
+
+.item i.de:hover {
+  color:red;
+  cursor: pointer;
+}
+
+.item i.se {  
+  font-size: 25px;
+  position: absolute;
+  right:0px;
+  top:10px;
+}
+.item i.se:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+/* ------------ add item ------------ */
+.add-to-do {   
+  background-color: #FFF;    
+  border-top: 1px solid rgba(0,0,0,0.1);
+  height:60px;
+  padding: 10px;
+  position: relative;
+}
+
+.add-to-do.instructions {   
+  font-weight: bolder;
+  height: 100px; 
+}
+
+.add-to-do.extend {
+  height: 100px; 
+}
+
+.add-to-do i {
+  color: #4162f6;    
+  font-size: 34px;    
+  position: absolute;
+}
+
+.add-to-do input {    
+  background-color: transparent;
+  border: none;    
+  font-size: 20px;
+  height: 35px;
+  left: 50px;
+  padding-left:10px;
+  position: absolute;
+  max-width: 500px;
+}
+
+.add-to-do input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #4162f6;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 20px;
+}
+.add-to-do input::-moz-placeholder { /* Firefox 19+ */
+  color: #4162f6;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 20px;
+}
+
+.add-to-do input:-ms-input-placeholder { /* IE 10+ */
+  color: #4162f6;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 20px;
+}
+.add-to-do input:-moz-placeholder { /* Firefox 18- */
+  color: #4162f6;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 20px;
+}
+
+.desc {
+  height: 150px;
+}
+
+.card-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(380px,1fr));
+	grid-gap: 0.5em;
+}
+
+.card {
+	height: max-content;
+}
+
+div.card-content div h4.show {
+  display: none;
+}
+
+div.card-content div p.show {
+  display: none;
+}
+
+div.card-content div input{
+  display: none;
+}
+
+div.card-content div input.show {
+  display: block;
+}
+
+div.card-content div textarea {
+  display: none;
+}
+
+div.card-content div textarea.show {
+  display: block;
+}
+
+div.card-content div div {
+  display: none;
+}
+
+div.card-content div div.show {
+  display: block;
+}
+
+div.card-content div button {
+  display: none;
+}
+
+div.card-content div button.show {
+  display: block;
+}
+
+#projectModal, #taskModal {
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  display: none;   
+  height: 100%;
+  left: 0;   
+  padding-top: 100px; 
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.form-popup {
+  border: 2px solid #666;
+  margin: 0 auto;  
+  max-width: 620px;
+	z-index: 9;
+}
+
+
+.form-container {
+	background-color: #fff;
+  max-width: 620px;
+  padding: 20px;
+}
+
+
+.form-container input[type=text] {
+	background: #eee;
+	border: none; 
+	margin: 5px 0 22px 0;
+	padding: 10px;
+	width: 100%;
+}
+
+.form-container input[type=text]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.form-container .btn {
+	background-color: #8ebf42;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+	margin-bottom:10px;
+  opacity: 0.8;
+  padding: 12px 20px;
+  width: 100%;
+}
+
+.form-container .cancel {
+  background-color: #cc0000;
+}
+
+.form-container .btn:hover, 
+.open-button:hover {
+  opacity: 1;
+}
