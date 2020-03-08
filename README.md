@@ -424,7 +424,7 @@ This is a Todo-list app built with JS.
 Checkout our [wikipage](https://github.com/geraldgsh/todo-list/wiki) for more details. 
 
 #### Live Demo
-[Demo](https://raw.githack.com/geraldgsh/todo-list/feature/dist/index.html)
+[Demo](https://rawcdn.githack.com/geraldgsh/todo-list/f254b8c4d01a9863f7d1206426569677e25cdd70/dist/index.html)
 
 #### Getting Started
 Clone repo and run index.html
