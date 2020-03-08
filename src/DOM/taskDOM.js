@@ -55,10 +55,14 @@ export const iterateTasks = () => {
   const projectList = JSON.parse(localStorage.getItem('projectList'));
   const project = Number(projectID);
   const index = projectList.map((i) => i.id).indexOf(project);
-  projectList[index].tasks.forEach((task) => {
+  if (projectList[index] === undefined) {
+    let empty;
+  } else {    
+    projectList[index].tasks.forEach((task) => {
     renderTaskCard(projectList[index].name, projectID, task.title, task.desc,
       task.dueDate, task.priority, task.done, task.id);
-  });
+    });
+  }
 };
 
 export const closeTaskForm = () => {
