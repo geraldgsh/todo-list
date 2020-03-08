@@ -16,8 +16,7 @@ export const addProjectToList = (projectInput) => {
   } else {
     const id = (
       projectList[projectList.length - 1] === undefined
-      ) ? 0:projectList[projectList.length - 1].id + 1;
-    console.log(id);    
+    ) ? 0 : projectList[projectList.length - 1].id + 1;
     const newProject = Project(projectInput, id);
     projectList.push(newProject);
     updateLocalStorage(projectList);
