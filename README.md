@@ -438,6 +438,10 @@ https://www.theodinproject.com/courses/javascript/lessons/todo-list
 ### Github Repo
 https://github.com/geraldgsh/todo-list
 
+### Future Feature
+
+1. "Day(s) left" font turns yellow in bold a week before dateline.
+2. "Day(s) left" font turns red a day before dateline. 
 
 👤 **Author**
 
