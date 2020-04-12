@@ -427,7 +427,7 @@ Checkout our [wikipage](https://github.com/geraldgsh/todo-list/wiki) for more de
 [Demo](https://rawcdn.githack.com/geraldgsh/todo-list/f254b8c4d01a9863f7d1206426569677e25cdd70/dist/index.html)
 
 #### Getting Started
-Clone repo and run index.html
+Clone repo and run index.html on your favorite browser.
 
 #### Prerequisites
 Web browser like Chrome, Mozilla or similar.
